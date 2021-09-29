@@ -1,4 +1,6 @@
-const tagsUrl = 'http://localhost:3000/tags';
+const serverUrl = 'http://localhost:3000';
+const postsUrl = serverUrl + '/posts';
+const tagsUrl = serverUrl + '/tags';
 
 export function getTags(successFunction) {
 	fetch(tagsUrl)
