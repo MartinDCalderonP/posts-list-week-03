@@ -1,0 +1,11 @@
+{
+  "name": "posts-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "dev": "json-server --watch ./server/db.json"
+  },
+  "author": "",
+  "license": "ISC"
+}

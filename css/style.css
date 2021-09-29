@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	background-color: #f5f5f5;
+}
+
+.chips-container {
+	display: flex;
+	justify-content: center;
+	background-color: #ffffff;
+	border-top: 1px solid #383838;
+	border-bottom: 1px solid #383838;
+	padding: 12px 24px;
+}
+
+.chips-container__chips-list {
+	width: 50vw;
+	display: flex;
+	justify-content: space-between;
+	overflow-y: hidden;
+}
+
+.chips-container__chips-list__chip {
+	font-size: 1rem;
+	border: 1px solid black;
+	border-radius: 999px;
+	padding: 5px 10px;
+	cursor: pointer;
+}
