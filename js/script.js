@@ -1,6 +1,7 @@
 'use strict';
 
 import { getTags, getPosts } from './fetchs.js';
+import { sortArrayByDate } from './helperFunctions.js';
 
 let chipsList = document.getElementById('chipsList');
 let featureSection = document.getElementById('featureSection');
@@ -16,10 +17,7 @@ function showChips(tags) {
 }
 
 function showPosts(posts) {
-	posts.sort(function (a, b) {
-		return new Date(a.createDate) - new Date(b.createDate);
-	});
-
+	posts.sort(sortArrayByDate);
 	posts.reverse();
 
 	for (let i = 0; i < posts.length; i++) {
