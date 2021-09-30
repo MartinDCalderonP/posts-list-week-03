@@ -2,7 +2,7 @@
 
 import './chipsList.js';
 import { featureSection, regularSection } from './commonVariables.js';
-import { getPosts, sortArrayByDate } from './helperFunctions.js';
+import { getPosts, getAuthorName, sortArrayByDate } from './helperFunctions.js';
 
 export const posts = await getPosts();
 
@@ -29,6 +29,7 @@ function insertPostsInHtml(posts) {
 			featureSection.innerHTML += `<div class="feature-section__card">
 											<h1>${posts[i].title}</h1>
 											<h2>${posts[i].subTitle}</h2>
+											<p>Por: ${getAuthorName(posts[i].author)}</p>
 											<img src=${posts[i].image}>
 											<p>${posts[i].body}</p>
 										</div>`;

@@ -1,4 +1,6 @@
-import { tagsUrl, postsUrl } from './commonVariables.js';
+import { tagsUrl, postsUrl, authorsUrl } from './commonVariables.js';
+
+const authors = await getAuthors();
 
 export async function getTags() {
 	try {
@@ -24,6 +26,24 @@ export async function getPosts() {
 	}
 }
 
+async function getAuthors() {
+	try {
+		const response = await fetch(authorsUrl);
+		const result = await response.json();
+		return result;
+	} catch (err) {
+		console.log(
+			`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
+		);
+	}
+}
+
 export function sortArrayByDate(a, b) {
 	return new Date(a.createDate) - new Date(b.createDate);
+}
+
+export function getAuthorName(id) {
+	let author = authors.find((item) => item.id === id);
+	let fullName = `${author.name} ${author.lastName}`;
+	return fullName;
 }
