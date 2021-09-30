@@ -43,7 +43,7 @@ export function sortArrayByDate(a, b) {
 }
 
 export function getAuthorName(id) {
-	let author = authors.find((item) => item.id === id);
+	let author = authors.find((item) => item.id === parseInt(id));
 	let fullName = `${author.name} ${author.lastName}`;
 	return fullName;
 }
