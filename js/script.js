@@ -27,26 +27,16 @@ function insertPostsInHtml(posts) {
 	for (let i = 0; i < posts.length; i++) {
 		if (i < 3) {
 			featureSection.innerHTML += `<div class="feature-section__card">
-										<h1>${posts[i].title}</h1>
-										<h2>${posts[i].subTitle}</h2>
-										<img src=${posts[i].image}>
-										<p>${posts[i].body}</p>
-										<p>${posts[i].createDate}</p>
-										<p>Likes: ${posts[i].likes}</p>
-										<p>Author: ${posts[i].author}</p>
-										<p>Tags: ${posts[i].tags}</p>
-									</div>`;
+											<h1>${posts[i].title}</h1>
+											<h2>${posts[i].subTitle}</h2>
+											<img src=${posts[i].image}>
+											<p>${posts[i].body}</p>
+										</div>`;
 		} else {
 			regularSection.innerHTML += `<div class="regular-section__card">
-										<h1>${posts[i].title}</h1>
-										<h2>${posts[i].subTitle}</h2>
-										<img src=${posts[i].image}>
-										<p>${posts[i].body}</p>
-										<p>${posts[i].createDate}</p>
-										<p>Likes: ${posts[i].likes}</p>
-										<p>Author: ${posts[i].author}</p>
-										<p>Tags: ${posts[i].tags}</p>
-									</div>`;
+											<h1>${posts[i].title}</h1>
+											<img src=${posts[i].image}>
+										</div>`;
 		}
 	}
 }
