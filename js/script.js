@@ -1,31 +1,14 @@
 'use strict';
 
-import {
-	chipsList,
-	featureSection,
-	regularSection,
-	tagsUrl,
-} from './commonVariables.js';
+import './chipsList.js';
+import { featureSection, regularSection } from './commonVariables.js';
+import { getPosts, sortArrayByDate } from './helperFunctions.js';
 
-import { getTags, getPosts, sortArrayByDate } from './helperFunctions.js';
+export const posts = await getPosts();
 
-chipsList.addEventListener('click', filterByTag);
-
-const tags = await getTags();
-const posts = await getPosts();
-
-showChips(tags);
 showCards(posts);
 
-function showChips(tags) {
-	for (let i = 0; i < tags.length; i++) {
-		chipsList.innerHTML += `<div id=${tags[i].id} class="chips-container__chips-list__chip">
-									${tags[i].name}
-								</div>`;
-	}
-}
-
-function showCards(posts) {
+export function showCards(posts) {
 	posts.sort(sortArrayByDate);
 	posts.reverse();
 
@@ -37,18 +20,6 @@ function showCards(posts) {
 	} else {
 		featureSection.innerHTML =
 			"<h1>There aren't posts for this tags. Try another</h1>";
-	}
-}
-
-function filterByTag(e) {
-	if (e.target.className.match('list__chip')) {
-		let filteredPosts;
-
-		filteredPosts = posts.filter((item) =>
-			item.tags.includes(parseInt(e.target.id))
-		);
-
-		showCards(filteredPosts);
 	}
 }
 
