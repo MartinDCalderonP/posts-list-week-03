@@ -15,6 +15,30 @@ body {
 	background-color: #f5f5f5;
 }
 
+.chips-container {
+	display: flex;
+	justify-content: center;
+	background-color: var(--backgroundColor);
+	border-top: 1px solid var(--detailsColor);
+	border-bottom: 1px solid var(--detailsColor);
+	padding: 12px 24px;
+}
+
+.chips-container__chips-list {
+	width: 50vw;
+	display: flex;
+	justify-content: space-between;
+	overflow-y: hidden;
+}
+
+.chips-container__chips-list__chip {
+	font-size: 1rem;
+	border: 1px solid black;
+	border-radius: 999px;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
 .feature-section {
 	margin: 30px 0px;
 	width: 100vw;
@@ -47,26 +71,34 @@ body {
 	width: 100%;
 }
 
-.chips-container {
+.regular-section {
+	margin: 30px 0px;
+	width: 100vw;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.regular-section__card {
+	width: 80%;
+	height: 50%;
 	background-color: var(--backgroundColor);
-	border-top: 1px solid var(--detailsColor);
-	border-bottom: 1px solid var(--detailsColor);
-	padding: 12px 24px;
-}
-
-.chips-container__chips-list {
-	width: 50vw;
-	display: flex;
-	justify-content: space-between;
-	overflow-y: hidden;
-}
-
-.chips-container__chips-list__chip {
-	font-size: 1rem;
-	border: 1px solid black;
-	border-radius: 999px;
+	border: 1px solid var(--detailsColor);
+	border-radius: 5px;
 	padding: 5px 10px;
-	cursor: pointer;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	transition: all 0.3s linear;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+	text-align: center;
+}
+
+.regular-section__card:hover {
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+	border-color: black;
+}
+
+.regular-section__card > img {
+	width: 100%;
 }
