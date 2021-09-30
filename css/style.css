@@ -78,13 +78,22 @@ body {
 	border-color: black;
 }
 
+.feature-section__card > h2 {
+	font-size: 1.2rem;
+}
+
+.feature-section__card__author {
+	margin: 10px 0px;
+	align-self: flex-start;
+}
+
 .feature-section__card > img {
 	width: 100%;
 }
 
-.feature-section__card > p {
-	text-align: justify;
+.feature-section__card__description {
 	margin-top: 15px;
+	text-align: justify;
 }
 
 .regular-section {

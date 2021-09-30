@@ -29,9 +29,13 @@ function insertPostsInHtml(posts) {
 			featureSection.innerHTML += `<div class="feature-section__card">
 											<h1>${posts[i].title}</h1>
 											<h2>${posts[i].subTitle}</h2>
-											<p>Por: ${getAuthorName(posts[i].author)}</p>
+											<p class="feature-section__card__author">
+												Por: ${getAuthorName(posts[i].author)}
+											</p>
 											<img src=${posts[i].image}>
-											<p>${posts[i].body}</p>
+											<p class="feature-section__card__description">
+												${posts[i].body}
+											</p>
 										</div>`;
 		} else {
 			regularSection.innerHTML += `<div class="regular-section__card">
