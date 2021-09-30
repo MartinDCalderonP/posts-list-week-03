@@ -1,4 +1,4 @@
-import { tagsUrl, postsUrl } from './commonVariables';
+import { tagsUrl, postsUrl } from './commonVariables.js';
 
 export function getTags(successFunction) {
 	fetch(tagsUrl)
