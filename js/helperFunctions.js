@@ -25,3 +25,9 @@ export function getPosts(successFunction) {
 export function sortArrayByDate(a, b) {
 	return new Date(a.createDate) - new Date(b.createDate);
 }
+
+export function filterByTag(e) {
+	if (e.target.className.match('list__chip')) {
+		console.log(e.target.id);
+	}
+}

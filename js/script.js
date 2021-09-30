@@ -20,7 +20,9 @@ getPosts(showPosts);
 
 function showChips(tags) {
 	for (let i = 0; i < tags.length; i++) {
-		chipsList.innerHTML += `<div class="chips-container__chips-list__chip">${tags[i].name}</div>`;
+		chipsList.innerHTML += `<div id=${tags[i].id} class="chips-container__chips-list__chip">
+									${tags[i].name}
+								</div>`;
 	}
 }
 
