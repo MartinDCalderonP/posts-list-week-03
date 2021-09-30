@@ -5,8 +5,15 @@ import {
 	featureSection,
 	regularSection,
 } from './commonVariables.js';
-import { getTags, getPosts } from './fetchs.js';
-import { sortArrayByDate } from './helperFunctions.js';
+
+import {
+	getTags,
+	getPosts,
+	filterByTag,
+	sortArrayByDate,
+} from './helperFunctions.js';
+
+chipsList.addEventListener('click', filterByTag);
 
 getTags(showChips);
 getPosts(showPosts);
