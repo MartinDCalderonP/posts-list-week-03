@@ -4,14 +4,10 @@ import {
 	chipsList,
 	featureSection,
 	regularSection,
+	tagsUrl,
 } from './commonVariables.js';
 
-import {
-	getTags,
-	getPosts,
-	filterByTag,
-	sortArrayByDate,
-} from './helperFunctions.js';
+import { getTags, getPosts, sortArrayByDate } from './helperFunctions.js';
 
 chipsList.addEventListener('click', filterByTag);
 
@@ -32,6 +28,19 @@ function showChips(tags) {
 function showCards(posts) {
 	posts.sort(sortArrayByDate);
 	posts.reverse();
+
+
+function filterByTag(e) {
+	if (e.target.className.match('list__chip')) {
+		let filteredPosts;
+
+		filteredPosts = posts.filter((item) =>
+			item.tags.includes(parseInt(e.target.id))
+		);
+
+		showCards(filteredPosts);
+	}
+}
 
 	for (let i = 0; i < posts.length; i++) {
 		if (i < 3) {
