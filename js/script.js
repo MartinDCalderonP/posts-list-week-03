@@ -15,8 +15,11 @@ import {
 
 chipsList.addEventListener('click', filterByTag);
 
-getTags(showChips);
-getPosts(showPosts);
+const tags = await getTags();
+const posts = await getPosts();
+
+showChips(tags);
+showCards(posts);
 
 function showChips(tags) {
 	for (let i = 0; i < tags.length; i++) {
@@ -26,7 +29,7 @@ function showChips(tags) {
 	}
 }
 
-function showPosts(posts) {
+function showCards(posts) {
 	posts.sort(sortArrayByDate);
 	posts.reverse();
 
