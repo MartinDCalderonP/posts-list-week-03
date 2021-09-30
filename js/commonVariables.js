@@ -1,4 +1,4 @@
-export const serverUrl = 'http://localhost:3000';
+export const serverUrl = 'https://posts-list-db.herokuapp.com';
 export const postsUrl = serverUrl + '/posts';
 export const tagsUrl = serverUrl + '/tags';
 
