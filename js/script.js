@@ -29,6 +29,16 @@ function showCards(posts) {
 	posts.sort(sortArrayByDate);
 	posts.reverse();
 
+	featureSection.innerHTML = '';
+	regularSection.innerHTML = '';
+
+	if (posts.length > 0) {
+		insertPostsInHtml(posts);
+	} else {
+		featureSection.innerHTML =
+			"<h1>There aren't posts for this tags. Try another</h1>";
+	}
+}
 
 function filterByTag(e) {
 	if (e.target.className.match('list__chip')) {
@@ -42,29 +52,30 @@ function filterByTag(e) {
 	}
 }
 
+function insertPostsInHtml(posts) {
 	for (let i = 0; i < posts.length; i++) {
 		if (i < 3) {
 			featureSection.innerHTML += `<div class="feature-section__card">
-											<h1>${posts[i].title}</h1>
-											<h2>${posts[i].subTitle}</h2>
-											<img src=${posts[i].image}>
-											<p>${posts[i].body}</p>
-											<p>${posts[i].createDate}</p>
-											<p>Likes: ${posts[i].likes}</p>
-											<p>Author: ${posts[i].author}</p>
-											<p>Tags: ${posts[i].tags}</p>
-										</div>`;
+										<h1>${posts[i].title}</h1>
+										<h2>${posts[i].subTitle}</h2>
+										<img src=${posts[i].image}>
+										<p>${posts[i].body}</p>
+										<p>${posts[i].createDate}</p>
+										<p>Likes: ${posts[i].likes}</p>
+										<p>Author: ${posts[i].author}</p>
+										<p>Tags: ${posts[i].tags}</p>
+									</div>`;
 		} else {
 			regularSection.innerHTML += `<div class="regular-section__card">
-											<h1>${posts[i].title}</h1>
-											<h2>${posts[i].subTitle}</h2>
-											<img src=${posts[i].image}>
-											<p>${posts[i].body}</p>
-											<p>${posts[i].createDate}</p>
-											<p>Likes: ${posts[i].likes}</p>
-											<p>Author: ${posts[i].author}</p>
-											<p>Tags: ${posts[i].tags}</p>
-										</div>`;
+										<h1>${posts[i].title}</h1>
+										<h2>${posts[i].subTitle}</h2>
+										<img src=${posts[i].image}>
+										<p>${posts[i].body}</p>
+										<p>${posts[i].createDate}</p>
+										<p>Likes: ${posts[i].likes}</p>
+										<p>Author: ${posts[i].author}</p>
+										<p>Tags: ${posts[i].tags}</p>
+									</div>`;
 		}
 	}
 }
