@@ -21,22 +21,32 @@ body {
 	background-color: var(--backgroundColor);
 	border-top: 1px solid var(--detailsColor);
 	border-bottom: 1px solid var(--detailsColor);
-	padding: 12px 24px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .chips-container__chips-list {
-	width: 50vw;
+	width: 50%;
+	height: 50px;
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 	overflow-y: hidden;
 }
 
 .chips-container__chips-list__chip {
 	font-size: 1rem;
-	border: 1px solid black;
+	height: 30px;
+	border: 1px solid var(--detailsColor);
 	border-radius: 999px;
 	padding: 5px 10px;
 	cursor: pointer;
+	transition: all 0.3s linear;
+	box-sizing: border-box;
+}
+
+.chips-container__chips-list__chip:hover {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+	border-color: black;
 }
 
 .feature-section {
