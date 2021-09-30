@@ -1,11 +1,12 @@
-import { posts, showCards } from './script.js';
+import { chipsList } from './commonVariables.js';
 import { getTags } from './helperFunctions.js';
-
-chipsList.addEventListener('click', filterByTag);
+import { posts, showCards } from './script.js';
 
 const tags = await getTags();
 
 showChips(tags);
+
+chipsList.addEventListener('click', filterByTag);
 
 function showChips(tags) {
 	for (let i = 0; i < tags.length; i++) {
