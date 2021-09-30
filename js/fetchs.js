@@ -13,7 +13,7 @@ export function getTags(successFunction) {
 		});
 }
 
-export function getLastThreePosts(successFunction) {
+export function getPosts(successFunction) {
 	fetch(postsUrl)
 		.then((data) => data.json())
 		.then(successFunction)
