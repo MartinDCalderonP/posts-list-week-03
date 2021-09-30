@@ -1,11 +1,12 @@
 'use strict';
 
+import {
+	chipsList,
+	featureSection,
+	regularSection,
+} from './commonVariables.js';
 import { getTags, getPosts } from './fetchs.js';
 import { sortArrayByDate } from './helperFunctions.js';
-
-let chipsList = document.getElementById('chipsList');
-let featureSection = document.getElementById('featureSection');
-let regularSection = document.getElementById('regularSection');
 
 getTags(showChips);
 getPosts(showPosts);

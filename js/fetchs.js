@@ -1,6 +1,4 @@
-const serverUrl = 'http://localhost:3000';
-const postsUrl = serverUrl + '/posts';
-const tagsUrl = serverUrl + '/tags';
+import { tagsUrl, postsUrl } from './commonVariables';
 
 export function getTags(successFunction) {
 	fetch(tagsUrl)
