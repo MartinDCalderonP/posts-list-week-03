@@ -1,12 +1,14 @@
 'use strict';
 
 import './chipsList.js';
-import { featureSection, regularSection } from './commonVariables.js';
+import { body, featureSection, regularSection } from './commonVariables.js';
 import { getPosts, getAuthorName, sortArrayByDate } from './helperFunctions.js';
 
 export const posts = await getPosts();
 
-showCards(posts);
+if (!body[0].id) {
+	showCards(posts);
+}
 
 export function showCards(posts) {
 	posts.sort(sortArrayByDate);
