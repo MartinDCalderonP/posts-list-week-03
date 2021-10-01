@@ -2,9 +2,7 @@
 
 import './chipsList.js';
 import { body, featureSection, regularSection } from './commonVariables.js';
-import { getPosts, getAuthorName, sortArrayByDate } from './helperFunctions.js';
-
-export const posts = await getPosts();
+import { posts, getAuthorName, sortArrayByDate } from './helperFunctions.js';
 
 if (!body[0].id) {
 	showCards(posts);

@@ -1,5 +1,7 @@
 import { tagsUrl, postsUrl, authorsUrl } from './commonVariables.js';
 
+export const tags = await getTags();
+export const posts = await getPosts();
 const authors = await getAuthors();
 
 export async function getTags() {
