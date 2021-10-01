@@ -1,8 +1,4 @@
-import { tagsUrl, postsUrl, authorsUrl } from './commonVariables.js';
-
-export const tags = await getTags();
-export const posts = await getPosts();
-const authors = await getAuthors();
+import { tagsUrl, postsUrl, authorsUrl, authors } from './commonVariables.js';
 
 export async function getTags() {
 	try {
@@ -28,7 +24,7 @@ export async function getPosts() {
 	}
 }
 
-async function getAuthors() {
+export async function getAuthors() {
 	try {
 		const response = await fetch(authorsUrl);
 		const result = await response.json();

@@ -1,8 +1,8 @@
 'use strict';
 
 import './chipsList.js';
-import { body, featureSection, regularSection } from './commonVariables.js';
-import { posts, getAuthorName, sortArrayByDate } from './helperFunctions.js';
+import { body, featureSection, regularSection, posts } from './commonVariables.js';
+import { getAuthorName, sortArrayByDate } from './helperFunctions.js';
 
 if (!body[0].id) {
 	showCards(posts);

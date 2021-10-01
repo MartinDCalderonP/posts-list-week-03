@@ -1,5 +1,4 @@
-import { chipsList } from './commonVariables.js';
-import { tags, posts } from './helperFunctions.js';
+import { chipsList, tags, posts } from './commonVariables.js';
 import { showCards } from './script.js';
 
 showChips(tags);
