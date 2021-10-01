@@ -9,9 +9,80 @@
 			href="https://applaudostudios.com/icons/icon-48x48.png?v=27bb7530d713f9b903ab0971a8dfdf0b"
 			type="image/x-icon"
 		/>
-		<link rel="stylesheet" href="css/post.css" />
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+			integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="css/createEdit.css" />
 		<link rel="stylesheet" href="css/style.css" />
 		<title>Create/Edit Post</title>
 	</head>
-	<body></body>
+	<body>
+		<nav>
+			<a href="index.html">Home</a>
+		</nav>
+		<main>
+			<form id="form" class="form">
+				<div class="form__input">
+					<label for="title">Title</label>
+					<input type="text" id="title" name="title" placeholder="Title" />
+					<i class="fas fa-check-circle"></i>
+					<i class="fas fa-times-circle"></i>
+				</div>
+
+				<div class="form__input">
+					<label for="subTitle">Subtitle</label>
+					<input
+						type="text"
+						id="subtitle"
+						name="subTitle"
+						placeholder="Subtitle"
+					/>
+					<i class="fas fa-check-circle"></i>
+					<i class="fas fa-times-circle"></i>
+				</div>
+
+				<div class="form__input">
+					<label for="author">Author</label>
+					<input type="text" id="author" name="author" placeholder="Author" />
+					<i class="fas fa-check-circle"></i>
+					<i class="fas fa-times-circle"></i>
+				</div>
+
+				<div class="form__input">
+					<label for="image">Image</label>
+					<input type="url" id="image" name="image" />
+					<i class="fas fa-check-circle"></i>
+					<i class="fas fa-times-circle"></i>
+				</div>
+
+				<div class="form__input">
+					<label for="body">Description</label>
+					<textarea
+						type="text"
+						id="description"
+						name="body"
+						placeholder="Description"
+						rows="5"
+					></textarea>
+					<i class="fas fa-check-circle"></i>
+					<i class="fas fa-times-circle"></i>
+				</div>
+
+				<div class="form__input">
+					<label for="tags">Tags</label>
+					<input type="text" id="tags" name="tags" placeholder="Tags" />
+					<i class="fas fa-check-circle"></i>
+					<i class="fas fa-times-circle"></i>
+				</div>
+
+				<button type="submit" id="submitButton" class="form__button">
+					Submit
+				</button>
+			</form>
+		</main>
+		<script type="module" src="js/createEdit.js"></script>
+	</body>
 </html>
