@@ -46,6 +46,31 @@ export function getAuthorName(id) {
 	return fullName;
 }
 
+export function isValid(input) {
+	if (input.value.length === 0) {
+		return `<li>${input.placeholder} is required.</li>`;
+	}
+
+	const regexTypes = {
+		tags: /\S+\, \S+$/,
+		imageUrl: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-])\/?$/,
+	};
+
+	const messagesTypes = {
+		tags: `<li>${input.placeholder} must be separated by commas: "Tag1, Tag2, etc".</li>`,
+		imageUrl: `<li>${input.placeholder} format must be "http://www.example.com".</li>`,
+	};
+
+	let regex = regexTypes[input.id];
+	let message = messagesTypes[input.id];
+
+	if (input.value.match(regex)) {
+		return true;
+	} else {
+		return message;
+	}
+}
+
 export function getCreateDate() {
 	let date = new Date();
 
