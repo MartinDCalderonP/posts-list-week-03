@@ -6,9 +6,10 @@ import {
 	tags,
 	tagsUrl,
 } from './commonVariables.js';
-import { getCreateDate, nameToSlug } from './helperFunctions.js';
+import { isValid, getCreateDate, nameToSlug } from './helperFunctions.js';
 
 let id;
+const errorsList = document.getElementById('Errors List');
 let errorsArray = [];
 
 submitButton.addEventListener('click', customSubmit);
@@ -20,30 +21,30 @@ function customSubmit(e) {
 
 	for (let i = 0; i < formItems.length - 1; i++) {
 		let item = formItems[i];
+		let validationResult = isValid(item);
 
-		if (typeof isValidValue(item) !== 'string') {
+		if (typeof validationResult !== 'string') {
 			inputSuccess(item);
 		} else {
-			inputError(item, isValidValue(item));
+			inputError(item, validationResult);
 		}
 	}
 
 	if (errorsArray.length > 0) {
 		errorsList.innerHTML = errorsArray.join('');
 	} else {
-		console.log('Éxito');
-		// createPost();
+		createPost();
 	}
 }
 
 function inputSuccess(input) {
-	input.parentElement.className = 'inputDiv success';
+	input.parentElement.className = 'form__input success';
 }
 
 function inputError(input, message) {
 	errorsArray.push(message);
 
-	input.parentElement.className = 'inputDiv error';
+	input.parentElement.className = 'form__input error';
 }
 
 async function createPost() {
