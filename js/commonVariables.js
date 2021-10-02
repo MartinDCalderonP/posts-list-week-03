@@ -10,6 +10,10 @@ export const chipsList = document.getElementById('chipsList');
 export const featureSection = document.getElementById('featureSection');
 export const regularSection = document.getElementById('regularSection');
 
+export const form = document.getElementById('form');
+export const formItems = form?.elements;
+export const submitButton = document.getElementById('submitButton');
+export const tagsInput = document.getElementById('tags');
 
 export const tags = await getTags();
 export const posts = await getPosts();
