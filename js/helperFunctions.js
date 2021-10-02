@@ -5,7 +5,6 @@ import {
 	authorsUrl,
 	authors,
 	postId,
-	post,
 	months,
 } from './commonVariables.js';
 
@@ -119,8 +118,8 @@ export function nameToSlug(string) {
 	return result;
 }
 
-export function changePostDateFormat() {
-	let splittedDate = post.createDate.split('/');
+export function changePostDateFormat(postDate) {
+	let splittedDate = postDate.split('/');
 	let day = splittedDate[2];
 	let month = months[splittedDate[1] - 1];
 	let year = splittedDate[0];
