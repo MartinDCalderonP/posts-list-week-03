@@ -42,6 +42,7 @@ body {
 	cursor: pointer;
 	transition: all 0.3s linear;
 	box-sizing: border-box;
+	min-width: max-content;
 }
 
 .chips-container__chips-list__chip:hover {
