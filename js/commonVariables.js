@@ -23,6 +23,8 @@ export const formItems = form?.elements;
 export const submitButton = document.getElementById('submitButton');
 export const tagsInput = document.getElementById('tags');
 
+export const container = document.getElementById('container');
+
 export const tags = await getTags();
 export const posts = await getPosts();
 export const authors = await getAuthors();
