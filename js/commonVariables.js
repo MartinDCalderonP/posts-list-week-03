@@ -29,3 +29,18 @@ export const tags = await getTags();
 export const posts = await getPosts();
 export const authors = await getAuthors();
 export const post = await getPostById();
+
+export const months = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December',
+];

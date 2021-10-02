@@ -5,6 +5,8 @@ import {
 	authorsUrl,
 	authors,
 	postId,
+	post,
+	months,
 } from './commonVariables.js';
 
 export function showChips() {
@@ -113,6 +115,17 @@ export function getCreateDate() {
 export function nameToSlug(string) {
 	let lowerCasedString = string.toLowerCase();
 	let result = lowerCasedString.replace(' ', '-');
+
+	return result;
+}
+
+export function changePostDateFormat() {
+	let splittedDate = post.createDate.split('/');
+	let day = splittedDate[2];
+	let month = months[splittedDate[1] - 1];
+	let year = splittedDate[0];
+
+	let result = `${month} ${day}, ${year}`;
 
 	return result;
 }
