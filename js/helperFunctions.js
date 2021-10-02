@@ -1,4 +1,18 @@
-import { tagsUrl, postsUrl, authorsUrl, authors } from './commonVariables.js';
+import {
+	tags,
+	tagsUrl,
+	postsUrl,
+	authorsUrl,
+	authors,
+} from './commonVariables.js';
+
+export function showChips() {
+	for (let i = 0; i < tags.length; i++) {
+		chipsList.innerHTML += `<div id=${tags[i].id} class="chips-container__chips-list__chip">
+									${tags[i].name}
+								</div>`;
+	}
+}
 
 export async function getTags() {
 	try {
