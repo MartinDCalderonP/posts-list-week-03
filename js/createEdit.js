@@ -6,13 +6,27 @@ import {
 	tags,
 	tagsUrl,
 } from './commonVariables.js';
-import { isValid, getCreateDate, nameToSlug } from './helperFunctions.js';
+import {
+	showChips,
+	isValid,
+	getCreateDate,
+	nameToSlug,
+} from './helperFunctions.js';
 
 let id;
 const errorsList = document.getElementById('Errors List');
 let errorsArray = [];
 
+chipsList.addEventListener('click', selectAnExistingTag);
 submitButton.addEventListener('click', customSubmit);
+
+showChips();
+
+function selectAnExistingTag(e) {
+	if (e.target.className.match('list__chip')) {
+		tagsInput.value += `${e.target.innerText}, `;
+	}
+}
 
 function customSubmit(e) {
 	e.preventDefault();
