@@ -4,6 +4,7 @@ import {
 	postsUrl,
 	authorsUrl,
 	authors,
+	postId,
 } from './commonVariables.js';
 
 export function showChips() {
@@ -29,6 +30,18 @@ export async function getTags() {
 export async function getPosts() {
 	try {
 		const response = await fetch(postsUrl);
+		const result = await response.json();
+		return result;
+	} catch (err) {
+		console.log(
+			`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
+		);
+	}
+}
+
+export async function getPostById() {
+	try {
+		const response = await fetch(postsUrl + '/' + postId);
 		const result = await response.json();
 		return result;
 	} catch (err) {
