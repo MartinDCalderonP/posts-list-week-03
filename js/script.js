@@ -9,9 +9,7 @@ import {
 } from './commonVariables.js';
 import { getAuthorName, sortArrayByDate } from './helperFunctions.js';
 
-if (!body[0].id) {
-	showCards(posts);
-}
+showCards(posts);
 
 export function showCards(posts) {
 	posts.sort(sortArrayByDate);
