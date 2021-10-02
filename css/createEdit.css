@@ -75,6 +75,26 @@ main {
 	right: 10px;
 }
 
+.errorsList {
+	width: 90%;
+	list-style-type: none;
+	margin: 16px 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: red;
+}
+
+.errorsList > li {
+	margin: 5px 0px;
+	padding: 8px 10px;
+	display: block;
+	background-color: red;
+	border-radius: 5px;
+	color: #f9f9f9;
+	box-sizing: border-box;
+}
+
 .form__button {
 	margin: 4px 0px 8px;
 	padding: 8px 20px;
