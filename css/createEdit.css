@@ -75,6 +75,26 @@ main {
 	right: 10px;
 }
 
+.success > input,
+.success > textarea {
+	border-color: green;
+}
+
+.success > .fa-check-circle {
+	display: block;
+	color: green;
+}
+
+.error > input,
+.error > textarea {
+	border-color: red;
+}
+
+.error > .fa-times-circle {
+	display: block;
+	color: red;
+}
+
 .errorsList {
 	width: 90%;
 	list-style-type: none;
