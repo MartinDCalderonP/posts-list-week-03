@@ -121,7 +121,6 @@ body {
 	align-items: center;
 	transition: all 0.3s linear;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-	cursor: pointer;
 }
 
 .regular-section__card:hover {
@@ -129,6 +128,11 @@ body {
 	border-color: black;
 }
 
-.regular-section__card > img {
+.regular-section__card > a {
+	color: black;
+	text-decoration: none;
+}
+
+.regular-section__card img {
 	width: 100%;
 }
