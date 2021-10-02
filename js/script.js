@@ -1,7 +1,12 @@
 'use strict';
 
 import './chipsList.js';
-import { body, featureSection, regularSection, posts } from './commonVariables.js';
+import {
+	body,
+	featureSection,
+	regularSection,
+	posts,
+} from './commonVariables.js';
 import { getAuthorName, sortArrayByDate } from './helperFunctions.js';
 
 if (!body[0].id) {
@@ -27,20 +32,30 @@ function insertPostsInHtml(posts) {
 	for (let i = 0; i < posts.length; i++) {
 		if (i < 3) {
 			featureSection.innerHTML += `<div class="feature-section__card">
-											<h1>${posts[i].title}</h1>
-											<h2>${posts[i].subTitle}</h2>
+											<a href="post.html?id=${posts[i].id}">
+												<h1>${posts[i].title}</h1>
+											</a>
+											<a href="post.html?id=${posts[i].id}">
+												<h2>${posts[i].subTitle}</h2>
+											</a>
 											<p class="feature-section__card__author">
 												Por: ${getAuthorName(posts[i].author)}
 											</p>
-											<img src=${posts[i].image}>
+											<a href="post.html?id=${posts[i].id}">
+												<img src=${posts[i].image} alt=${posts[i].title}>
+											</a>
 											<p class="feature-section__card__description">
 												${posts[i].body}
 											</p>
 										</div>`;
 		} else {
 			regularSection.innerHTML += `<div class="regular-section__card">
-											<h1>${posts[i].title}</h1>
-											<img src=${posts[i].image}>
+											<a href="post.html?id=${posts[i].id}">
+												<h1>${posts[i].title}</h1>
+											</a>
+											<a href="post.html?id=${posts[i].id}">
+												<img src=${posts[i].image} alt=${posts[i].title}>
+											</a>
 										</div>`;
 		}
 	}
