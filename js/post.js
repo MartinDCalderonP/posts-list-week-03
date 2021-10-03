@@ -4,6 +4,8 @@ import {
 	tags,
 	commentsContainer,
 	comments,
+	editButton,
+	deleteButton,
 } from './commonVariables.js';
 import {
 	changePostDateFormat,
@@ -15,6 +17,9 @@ import {
 showPost();
 showPostChips();
 showComments();
+
+editButton.addEventListener('click', editPost);
+deleteButton.addEventListener('click', deletePost);
 
 function showPost() {
 	postContainer.innerHTML = `<div class="post-container__row">
@@ -30,16 +35,6 @@ function showPost() {
                                         <i class="far fa-thumbs-up"></i>
                                         ${post.likes}
                                     </p>
-
-                                    <div class="post-container__body__icons__buttons">
-                                        <button>
-                                            <i class="fas fa-pen"></i>
-                                        </button>
-                                        
-                                        <button>
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
                                 </div>
                                 <p>${post.body}</p>
                             </div>`;
@@ -74,4 +69,12 @@ function showComments() {
 	} else {
 		commentsContainer.innerHTML += `<h4>There aren't comments yet.</h4>`;
 	}
+}
+
+function editPost() {
+	console.log('EDIT');
+}
+
+function deletePost() {
+	console.log('DELETE');
 }

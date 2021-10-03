@@ -29,6 +29,8 @@ export const tagsInput = document.getElementById('tags');
 
 export const postContainer = document.getElementById('postContainer');
 export const commentsContainer = document.getElementById('commentsContainer');
+export const editButton = document.getElementById('editButton');
+export const deleteButton = document.getElementById('deleteButton');
 
 export const tags = await getTags();
 export const posts = await getPosts();
