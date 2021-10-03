@@ -83,7 +83,7 @@ export function isValid(input) {
 
 	const regexTypes = {
 		tags: /\S+\, \S+$/,
-		imageUrl: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-])\/?$/,
+		imageUrl: /\S+\.\S+\.\S+/,
 	};
 
 	const messagesTypes = {
