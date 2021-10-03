@@ -1,10 +1,10 @@
-import { chipsList, posts } from './commonVariables.js';
+import { chipsList, tags, posts } from './commonVariables.js';
 import { showChips } from './helperFunctions.js';
 import { showCards } from './script.js';
 
-showChips();
-
 chipsList.addEventListener('click', filterByTag);
+
+showChips(tags);
 
 function filterByTag(e) {
 	if (e.target.className.match('list__chip')) {

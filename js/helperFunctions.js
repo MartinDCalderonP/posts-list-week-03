@@ -1,5 +1,4 @@
 import {
-	tags,
 	tagsUrl,
 	postsUrl,
 	authorsUrl,
@@ -8,7 +7,7 @@ import {
 	months,
 } from './commonVariables.js';
 
-export function showChips() {
+export function showChips(tags) {
 	for (let i = 0; i < tags.length; i++) {
 		chipsList.innerHTML += `<div id=${tags[i].id} class="chips-container__chips-list__chip">
 									${tags[i].name}

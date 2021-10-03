@@ -20,7 +20,7 @@ let errorsArray = [];
 chipsList.addEventListener('click', selectAnExistingTag);
 submitButton.addEventListener('click', customSubmit);
 
-showChips();
+showChips(tags);
 
 function selectAnExistingTag(e) {
 	if (e.target.className.match('list__chip')) {
