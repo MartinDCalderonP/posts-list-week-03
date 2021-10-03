@@ -36,3 +36,7 @@ main {
 	display: flex;
 	justify-content: flex-end;
 }
+
+.container img {
+	width: 100%;
+}
