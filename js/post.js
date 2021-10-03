@@ -25,10 +25,22 @@ function showPost() {
                                 <h2>${post.subTitle}</h2>
                                 <p>Por: ${getAuthorName(post.author)}</p>
                                 <img src=${post.image} alt=${post.title}>
-                                <p class="post-container__body__likes">
-                                    <i class="far fa-thumbs-up"></i>
-                                    ${post.likes}
-                                </p>
+                                <div class="post-container__body__icons">
+                                    <p>
+                                        <i class="far fa-thumbs-up"></i>
+                                        ${post.likes}
+                                    </p>
+
+                                    <div class="post-container__body__icons__buttons">
+                                        <button>
+                                            <i class="fas fa-pen"></i>
+                                        </button>
+                                        
+                                        <button>
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
                                 <p>${post.body}</p>
                             </div>`;
 }
