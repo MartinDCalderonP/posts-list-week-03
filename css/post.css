@@ -60,4 +60,10 @@ main {
 	background-color: var(--backgroundColor);
 }
 
+.comments-container {
+	width: 70vw;
+}
+
+.comments-container > h3 {
+	margin-bottom: 20px;
 }
