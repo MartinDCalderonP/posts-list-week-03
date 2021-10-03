@@ -29,7 +29,7 @@ main {
 
 .post-container {
 	margin-top: 20px;
-	width: 75vw;
+	width: 70vw;
 }
 
 .post-container__row {
@@ -51,6 +51,6 @@ main {
 }
 
 .chips-container {
-	width: 75vw;
+	width: 70vw;
 	margin: 20px 0px;
 }
