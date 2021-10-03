@@ -46,6 +46,28 @@ main {
 	width: 100%;
 }
 
+.post-container__body__icons {
+	margin-top: 0px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.post-container__body__icons i {
+	font-size: 20px;
+}
+
+.post-container__body__icons__buttons {
+	width: 150px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.post-container__body__icons__buttons > button {
+	cursor: pointer;
+	padding: 5px 20px;
+}
+
 .post-container__body > p {
 	text-align: justify;
 }
