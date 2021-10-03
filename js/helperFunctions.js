@@ -5,6 +5,9 @@ import {
 	authors,
 	postId,
 	months,
+	commentsUrl,
+	usersUrl,
+	users,
 } from './commonVariables.js';
 
 export function showChips(tags) {
@@ -126,4 +129,34 @@ export function changePostDateFormat(postDate) {
 	let result = `${month} ${day}, ${year}`;
 
 	return result;
+}
+
+export async function getCommentsById() {
+	try {
+		const response = await fetch(commentsUrl + '?postId=' + postId);
+		const result = await response.json();
+		return result;
+	} catch (err) {
+		console.log(
+			`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
+		);
+	}
+}
+
+export async function getUsers() {
+	try {
+		const response = await fetch(usersUrl);
+		const result = await response.json();
+		return result;
+	} catch (err) {
+		console.log(
+			`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
+		);
+	}
+}
+
+export function getUserName(id) {
+	let user = users.find((item) => item.id === parseInt(id));
+	let fullName = `${user.name} ${user.lastName}`;
+	return fullName;
 }

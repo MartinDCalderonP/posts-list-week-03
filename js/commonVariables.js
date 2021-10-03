@@ -3,12 +3,16 @@ import {
 	getPosts,
 	getPostById,
 	getAuthors,
+	getCommentsById,
+	getUsers,
 } from './helperFunctions.js';
 
 export const serverUrl = 'https://posts-list-db.herokuapp.com';
 export const postsUrl = serverUrl + '/posts';
 export const tagsUrl = serverUrl + '/tags';
 export const authorsUrl = serverUrl + '/authors';
+export const commentsUrl = serverUrl + '/comments';
+export const usersUrl = serverUrl + '/users';
 
 export const urlParams = new URLSearchParams(window.location.search);
 export const postId = urlParams.get('id');
@@ -24,11 +28,14 @@ export const submitButton = document.getElementById('submitButton');
 export const tagsInput = document.getElementById('tags');
 
 export const postContainer = document.getElementById('postContainer');
+export const commentsContainer = document.getElementById('commentsContainer');
 
 export const tags = await getTags();
 export const posts = await getPosts();
 export const authors = await getAuthors();
 export const post = await getPostById();
+export const comments = await getCommentsById();
+export const users = await getUsers();
 
 export const months = [
 	'January',

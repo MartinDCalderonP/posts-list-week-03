@@ -1,12 +1,20 @@
-import { postContainer, post, tags } from './commonVariables.js';
+import {
+	postContainer,
+	post,
+	tags,
+	commentsContainer,
+	comments,
+} from './commonVariables.js';
 import {
 	changePostDateFormat,
 	getAuthorName,
 	showChips,
+	getUserName,
 } from './helperFunctions.js';
 
 showPost();
 showPostChips();
+showComments();
 
 function showPost() {
 	postContainer.innerHTML = `<div class="post-container__row">
@@ -35,4 +43,23 @@ function showPostChips() {
 	}
 
 	showChips(postTags);
+}
+
+function showComments() {
+	if (comments.lengt > 0) {
+		for (let i = 0; i < comments.length; i++) {
+			const item = comments[i];
+
+			commentsContainer.innerHTML += `<div>
+                                            <p>
+                                                <strong>
+                                                    ${getUserName(item.user)}
+                                                </strong>
+                                            </p>
+                                            <p>${item.comment}</p>
+                                        </div>`;
+		}
+	} else {
+		commentsContainer.innerHTML += `<h4>There aren't comments yet.</h4>`;
+	}
 }
