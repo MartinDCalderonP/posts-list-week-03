@@ -53,4 +53,11 @@ main {
 .chips-container {
 	width: 70vw;
 	margin: 20px 0px;
+	background-color: #f5f5f5;
+}
+
+.chips-container__chips-list__chip {
+	background-color: var(--backgroundColor);
+}
+
 }
