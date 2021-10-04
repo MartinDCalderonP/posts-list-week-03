@@ -9,6 +9,7 @@ import {
 	usersUrl,
 	users,
 	tags,
+	searchPostUrl,
 } from './commonVariables.js';
 
 export function showChips(tags) {
@@ -178,4 +179,16 @@ export function getUserName(id) {
 	let user = users.find((item) => item.id === parseInt(id));
 	let fullName = `${user.name} ${user.lastName}`;
 	return fullName;
+}
+
+export async function searchPost() {
+	try {
+		const response = await fetch(searchPostUrl);
+		const result = await response.json();
+		return result;
+	} catch (error) {
+		console.log(
+			`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
+		);
+	}
 }

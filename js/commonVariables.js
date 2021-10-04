@@ -5,6 +5,7 @@ import {
 	getAuthors,
 	getCommentsById,
 	getUsers,
+	searchPost,
 } from './helperFunctions.js';
 
 export const serverUrl = 'https://posts-list-db.herokuapp.com';
@@ -13,6 +14,7 @@ export const tagsUrl = serverUrl + '/tags';
 export const authorsUrl = serverUrl + '/authors';
 export const commentsUrl = serverUrl + '/comments';
 export const usersUrl = serverUrl + '/users';
+export const searchPostUrl = serverUrl + '/posts?title_like=';
 
 export const urlParams = new URLSearchParams(window.location.search);
 export const postId = urlParams.get('id');
@@ -39,6 +41,7 @@ export const authors = await getAuthors();
 export const post = await getPostById();
 export const comments = await getCommentsById();
 export const users = await getUsers();
+export const searchedPost = await searchPost();
 
 export const months = [
 	'January',
