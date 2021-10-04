@@ -81,11 +81,36 @@ main {
 .comments-container {
 	width: 70vw;
 	margin: 20px 0px 50px;
+	display: flex;
+	flex-direction: column;
 }
 
 .comments-container > textarea {
-	width: inherit;
+	width: 100%;
+	border: 2px solid #303030;
+	border-radius: 5px;
+	padding: 8px 28px 8px 16px;
+	font-size: 16px;
+	outline-style: none;
+	transition: all 0.3s linear;
+	box-sizing: border-box;
 	resize: none;
+}
+
+.comments-container > textarea:hover {
+	background-color: #e2e2e2;
+}
+
+.comments-container > textarea:focus {
+	border-color: blue;
+}
+
+.comments-container > button {
+	margin-top: 10px;
+	padding: 5px 20px;
+	font-size: 1.2rem;
+	align-self: flex-end;
+	cursor: pointer;
 }
 
 .comments-container > h3 {

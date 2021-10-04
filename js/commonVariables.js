@@ -5,7 +5,6 @@ import {
 	getAuthors,
 	getCommentsById,
 	getUsers,
-	searchPost,
 } from './helperFunctions.js';
 
 export const serverUrl = 'https://posts-list-db.herokuapp.com';
@@ -35,6 +34,8 @@ export const commentsContainer = document.getElementById('commentsContainer');
 export const likeButton = document.getElementById('likeButton');
 export const editButton = document.getElementById('editButton');
 export const deleteButton = document.getElementById('deleteButton');
+export const commentBox = document.getElementById('commentBox');
+export const addCommentButton = document.getElementById('addCommentButton');
 
 export const searchForm = document.getElementById('searchForm');
 export const searchInput = document.getElementById('searchInput');

@@ -8,6 +8,7 @@ import {
 	deleteButton,
 	postsUrl,
 	likeButton,
+	addCommentButton,
 } from './commonVariables.js';
 import {
 	changePostDateFormat,
@@ -24,6 +25,7 @@ showComments();
 likeButton.addEventListener('click', throttle(likePost, 500));
 editButton.addEventListener('click', throttle(editPost, 500));
 deleteButton.addEventListener('click', throttle(deletePost, 500));
+addCommentButton.addEventListener('click', throttle(addComment, 500));
 
 function showPost() {
 	postContainer.innerHTML = `<div class="post-container__row">
@@ -109,4 +111,8 @@ function deletePost() {
 			.then((data) => alert('Deleted post.'))
 			.catch((err) => 'An error has occurred, please try again later.');
 	}
+}
+
+function addComment() {
+	console.log('COMMENT');
 }
