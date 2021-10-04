@@ -8,6 +8,7 @@ import {
 	commentsUrl,
 	usersUrl,
 	users,
+	tags,
 } from './commonVariables.js';
 
 export function showChips(tags) {
@@ -74,6 +75,22 @@ export function getAuthorName(id) {
 	let author = authors.find((item) => item.id === parseInt(id));
 	let fullName = `${author.name} ${author.lastName}`;
 	return fullName;
+}
+
+export function getTagsNames(ids) {
+	let tagsNames = [];
+
+	for (let i = 0; i < ids.length; i++) {
+		let selectedTag = tags.find((item) => item.id === ids[i]);
+
+		if (selectedTag) {
+			tagsNames.push(selectedTag.name);
+		}
+	}
+
+	let result = tagsNames.join(', ');
+
+	return result;
 }
 
 export function isValid(input) {
