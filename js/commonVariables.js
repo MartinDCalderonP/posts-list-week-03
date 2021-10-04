@@ -34,7 +34,8 @@ export const commentsContainer = document.getElementById('commentsContainer');
 export const likeButton = document.getElementById('likeButton');
 export const editButton = document.getElementById('editButton');
 export const deleteButton = document.getElementById('deleteButton');
-export const commentBox = document.getElementById('commentBox');
+export const userSelect = document.getElementById('userSelect');
+export const commentTextArea = document.getElementById('commentTextArea');
 export const addCommentButton = document.getElementById('addCommentButton');
 
 export const searchForm = document.getElementById('searchForm');

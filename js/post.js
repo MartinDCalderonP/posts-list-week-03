@@ -9,6 +9,10 @@ import {
 	postsUrl,
 	likeButton,
 	addCommentButton,
+	commentTextArea,
+	commentsUrl,
+	users,
+	userSelect,
 } from './commonVariables.js';
 import {
 	changePostDateFormat,
@@ -18,14 +22,18 @@ import {
 	throttle,
 } from './helperFunctions.js';
 
+let selectedUserId = 1;
+
 showPost();
 showPostChips();
 showComments();
+showUsersOnSelect();
 
 likeButton.addEventListener('click', throttle(likePost, 500));
 editButton.addEventListener('click', throttle(editPost, 500));
 deleteButton.addEventListener('click', throttle(deletePost, 500));
 addCommentButton.addEventListener('click', throttle(addComment, 500));
+userSelect.addEventListener('click', getSelectedUserId);
 
 function showPost() {
 	postContainer.innerHTML = `<div class="post-container__row">
@@ -56,8 +64,24 @@ function showPostChips() {
 	showChips(postTags);
 }
 
+function showUsersOnSelect() {
+	for (let i = 0; i < users.length; i++) {
+		const item = users[i];
+
+		userSelect.innerHTML += `<option value="${item.id}">${item.name} ${item.lastName}</option>`;
+	}
+}
+
+function getSelectedUserId(e) {
+	if (e.target.matches('option')) {
+		selectedUserId = e.target.value;
+	}
+}
+
 function showComments() {
-	if (comments.lengt > 0) {
+	console.log(comments, commentsContainer);
+
+	if (comments.length > 0) {
 		for (let i = 0; i < comments.length; i++) {
 			const item = comments[i];
 
@@ -114,5 +138,22 @@ function deletePost() {
 }
 
 function addComment() {
-	console.log('COMMENT');
+	if (commentTextArea.value) {
+		let newComment = {};
+
+		newComment['comment'] = commentTextArea.value;
+		newComment['postId'] = post.id;
+		newComment['user'] = selectedUserId;
+
+		fetch(commentsUrl, {
+			method: 'POST',
+			body: JSON.stringify(newComment),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+			.then((data) => data.json())
+			.then((data) => alert('Comment added: ' + JSON.stringify(data)))
+			.catch((err) => 'An error has occurred, please try again later.');
+	}
 }

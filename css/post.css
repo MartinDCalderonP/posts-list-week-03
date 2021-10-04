@@ -132,6 +132,6 @@ main {
 	margin-bottom: 50px;
 }
 
-.comments-container > h3 {
+.comments-container > * {
 	margin-bottom: 20px;
 }
