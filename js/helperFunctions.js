@@ -44,14 +44,16 @@ export async function getPosts() {
 }
 
 export async function getPostById() {
-	try {
-		const response = await fetch(postsUrl + '/' + postId);
-		const result = await response.json();
-		return result;
-	} catch (err) {
-		console.log(
-			`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
-		);
+	if (postId) {
+		try {
+			const response = await fetch(postsUrl + '/' + postId);
+			const result = await response.json();
+			return result;
+		} catch (err) {
+			console.log(
+				`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
+			);
+		}
 	}
 }
 
