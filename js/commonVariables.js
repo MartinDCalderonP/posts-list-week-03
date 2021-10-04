@@ -35,6 +35,10 @@ export const commentsContainer = document.getElementById('commentsContainer');
 export const editButton = document.getElementById('editButton');
 export const deleteButton = document.getElementById('deleteButton');
 
+export const searchForm = document.getElementById('searchForm');
+export const searchInput = document.getElementById('searchInput');
+export const searchButton = document.getElementById('searchButton');
+
 export const tags = await getTags();
 export const posts = await getPosts();
 export const authors = await getAuthors();
