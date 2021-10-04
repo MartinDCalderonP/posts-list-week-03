@@ -78,14 +78,14 @@ main {
 	font-size: 20px;
 }
 
-.comments-container {
+.comment-box {
 	width: 70vw;
-	margin: 20px 0px 50px;
+	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
 }
 
-.comments-container > textarea {
+.comment-box > textarea {
 	width: 100%;
 	border: 2px solid #303030;
 	border-radius: 5px;
@@ -97,15 +97,15 @@ main {
 	resize: none;
 }
 
-.comments-container > textarea:hover {
+.comment-box > textarea:hover {
 	background-color: #e2e2e2;
 }
 
-.comments-container > textarea:focus {
+.comment-box > textarea:focus {
 	border-color: blue;
 }
 
-.comments-container > button {
+.comment-box > button {
 	margin-top: 10px;
 	padding: 5px 20px;
 	font-size: 1.2rem;
@@ -113,6 +113,11 @@ main {
 	cursor: pointer;
 }
 
+.comments-container {
+	width: 70vw;
+	margin-bottom: 50px;
+}
+
 .comments-container > h3 {
-	margin: 20px 0px;
+	margin-bottom: 20px;
 }
