@@ -9,10 +9,33 @@
 			href="https://applaudostudios.com/icons/icon-48x48.png?v=27bb7530d713f9b903ab0971a8dfdf0b"
 			type="image/x-icon"
 		/>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+			integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+			crossorigin="anonymous"
+		/>
 		<link rel="stylesheet" href="css/style.css" />
 		<title>Posts List</title>
 	</head>
 	<body>
+		<header>
+			<form id="form" class="form" autocomplete="off">
+				<div id="searchInputDiv" class="form__search">
+					<input
+						type="text"
+						id="searchInput"
+						name="search"
+						placeholder="Search"
+					/>
+					<button id="searchButton" class="form__search-button">
+						<i class="fas fa-search"></i>
+					</button>
+				</div>
+				<ul id="suggestionsList" class="form__suggestions-list"></ul>
+			</form>
+		</header>
+
 		<div class="chips-container">
 			<div id="chipsList" class="chips-container__chips-list"></div>
 		</div>
