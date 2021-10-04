@@ -130,7 +130,10 @@ function deletePost() {
 			},
 		})
 			.then((data) => data.json())
-			.then((data) => alert('Deleted post.'))
+			.then((data) => {
+				alert('Deleted post.');
+				window.location.replace('index.html');
+			})
 			.catch((err) => 'An error has occurred, please try again later.');
 	}
 }
