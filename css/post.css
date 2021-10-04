@@ -85,6 +85,17 @@ main {
 	flex-direction: column;
 }
 
+.comment-box > select {
+	margin-bottom: 10px;
+	border: 2px solid #303030;
+	border-radius: 5px;
+	padding: 8px 28px 8px 16px;
+	font-size: 16px;
+	outline-style: none;
+	transition: all 0.3s linear;
+	box-sizing: border-box;
+}
+
 .comment-box > textarea {
 	width: 100%;
 	border: 2px solid #303030;
@@ -95,12 +106,15 @@ main {
 	transition: all 0.3s linear;
 	box-sizing: border-box;
 	resize: none;
+	background-color: var(--backgroundColor);
 }
 
+.comment-box > select:hover,
 .comment-box > textarea:hover {
 	background-color: #e2e2e2;
 }
 
+.comment-box > select:focus,
 .comment-box > textarea:focus {
 	border-color: blue;
 }
