@@ -46,17 +46,6 @@ main {
 	width: 100%;
 }
 
-.post-container__body__icons {
-	margin-top: 0px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
-.post-container__body__icons i {
-	font-size: 20px;
-}
-
 .post-container__body > p {
 	text-align: justify;
 }
@@ -72,12 +61,18 @@ main {
 }
 
 .buttons-container {
+	width: 70vw;
+	display: flex;
+	justify-content: space-between;
+}
+
+.buttons-container > div {
 	width: 150px;
 	display: flex;
 	justify-content: space-between;
 }
 
-.buttons-container > button {
+.buttons-container button {
 	cursor: pointer;
 	padding: 5px 20px;
 	font-size: 20px;

@@ -32,6 +32,7 @@ export const tagsInput = document.getElementById('tags');
 
 export const postContainer = document.getElementById('postContainer');
 export const commentsContainer = document.getElementById('commentsContainer');
+export const likeButton = document.getElementById('likeButton');
 export const editButton = document.getElementById('editButton');
 export const deleteButton = document.getElementById('deleteButton');
 

@@ -7,6 +7,7 @@ import {
 	editButton,
 	deleteButton,
 	postsUrl,
+	likeButton,
 } from './commonVariables.js';
 import {
 	changePostDateFormat,
@@ -32,13 +33,11 @@ function showPost() {
                                 <p>Por: ${getAuthorName(post.author)}</p>
                                 <img src=${post.image} alt=${post.title}>
                                 <div class="post-container__body__icons">
-                                    <p>
-                                        <i class="far fa-thumbs-up"></i>
-                                        ${post.likes}
-                                    </p>
+                                    
                                 </div>
                                 <p>${post.body}</p>
                             </div>`;
+	likeButton.innerHTML += post.likes;
 }
 
 function showPostChips() {
