@@ -1,8 +1,8 @@
 'use strict';
 
-import './chipsList.js';
 import './search.js';
 import './eventListeners.js';
+import './chipsList.js';
 import { featureSection, regularSection, posts } from './commonVariables.js';
 import { getAuthorName, sortArrayByDate } from './helperFunctions.js';
 
@@ -16,7 +16,7 @@ export function showCards(posts) {
 	regularSection.innerHTML = '';
 
 	if (posts.length > 0) {
-		insertPostsInHtml(posts);
+		insertPostsInCards(posts);
 	} else {
 		featureSection.innerHTML =
 			"<h1>There aren't posts for this tags. Try another</h1>";
@@ -24,7 +24,7 @@ export function showCards(posts) {
 	}
 }
 
-function insertPostsInHtml(posts) {
+function insertPostsInCards(posts) {
 	for (let i = 0; i < posts.length; i++) {
 		if (i < 3) {
 			featureSection.innerHTML += `<div class="feature-section__card">

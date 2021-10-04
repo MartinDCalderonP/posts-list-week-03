@@ -1,9 +1,9 @@
 import {
 	searchForm,
-	featureSection,
-	regularSection,
 	searchInput,
 	searchButton,
+	featureSection,
+	regularSection,
 } from './commonVariables.js';
 import { searchPost, throttle } from './helperFunctions.js';
 import { showCards } from './script.js';
