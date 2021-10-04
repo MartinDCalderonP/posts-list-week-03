@@ -74,6 +74,7 @@ function customSubmit(e) {
 	if (errorsArray.length > 0) {
 		errorsList.innerHTML = errorsArray.join('');
 	} else {
+		errorsList.innerHTML = '';
 		createPost();
 	}
 }
