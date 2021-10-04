@@ -2,25 +2,52 @@ import {
 	formItems,
 	submitButton,
 	postsUrl,
+	authorInput,
 	tagsInput,
 	tags,
 	tagsUrl,
+	postId,
+	post,
+	authors,
+	authorsUrl,
 } from './commonVariables.js';
 import {
 	showChips,
 	isValid,
 	getCreateDate,
 	nameToSlug,
+	getAuthorName,
+	getTagsNames,
 } from './helperFunctions.js';
 
-let id;
 const errorsList = document.getElementById('Errors List');
 let errorsArray = [];
 
 chipsList.addEventListener('click', selectAnExistingTag);
 submitButton.addEventListener('click', customSubmit);
 
+if (postId) {
+	showPostToEdit();
+}
+
 showChips(tags);
+
+function showPostToEdit() {
+	for (let i = 0; i < formItems.length; i++) {
+		const item = formItems[i];
+
+		const inputsTypes = {
+			title: post.title,
+			subTitle: post.subTitle,
+			author: getAuthorName(post.author),
+			image: post.image,
+			body: post.body,
+			tags: getTagsNames(post.tags),
+		};
+
+		item.value = inputsTypes[item.name];
+	}
+}
 
 function selectAnExistingTag(e) {
 	if (e.target.className.match('list__chip')) {
@@ -63,6 +90,7 @@ function inputError(input, message) {
 
 async function createPost() {
 	let formData = {};
+	let fetchUrl = postsUrl;
 	let method = 'POST';
 
 	for (let i = 0; i < formItems.length - 2; i++) {
@@ -71,11 +99,18 @@ async function createPost() {
 		formData[item.name] = item.value;
 	}
 
-	formData['createDate'] = getCreateDate();
+	if (!postId) {
+		formData['createDate'] = getCreateDate();
+	} else {
+		formData['createDate'] = post.createDate;
+	}
+
+	formData['author'] = await getAuthorId();
 	formData['tags'] = await getTagsId();
 
-	if (id) {
+	if (postId) {
 		method = 'PUT';
+		fetchUrl = postsUrl + '/' + postId;
 	}
 
 	if (formData.tags) {
@@ -86,7 +121,7 @@ async function createPost() {
 		}
 	}
 
-	fetch(postsUrl, {
+	fetch(fetchUrl, {
 		method: method,
 		body: JSON.stringify(formData),
 		headers: {
@@ -94,8 +129,61 @@ async function createPost() {
 		},
 	})
 		.then((data) => data.json())
-		.then((data) => alert('Post created: ' + JSON.stringify(data)))
+		.then((data) => {
+			if (!method === 'PUT') {
+				alert('Post created: ' + JSON.stringify(data));
+			} else {
+				alert('Post modified: ' + JSON.stringify(data));
+			}
+		})
 		.catch((err) => alert('Error: ' + JSON.stringify(err)));
+}
+
+async function getAuthorId() {
+	let author = authorInput.value.split(' ');
+	let authorName = author[0];
+	let authorLastName = author[1];
+	let authorId;
+
+	let selectedAuthor = authors.find(
+		(item) => item.name === authorName && item.lastName === authorLastName
+	);
+
+	if (selectedAuthor) {
+		authorId = selectedAuthor.id;
+	} else {
+		authorId = await createNewAuthor(authorName, authorLastName);
+	}
+
+	return authorId;
+}
+
+async function createNewAuthor(authorName, authorLastName) {
+	let newAuthor = {};
+
+	newAuthor['name'] = authorName;
+	newAuthor['lastName'] = authorLastName;
+
+	let newAuthorId = await getNewAuthorId(newAuthor);
+
+	return newAuthorId;
+}
+
+async function getNewAuthorId(newAuthor) {
+	try {
+		const response = await fetch(authorsUrl, {
+			method: 'POST',
+			body: JSON.stringify(newAuthor),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
+
+		const result = await response.json();
+		return result.id;
+	} catch (err) {
+		alert('Error: ' + JSON.stringify(err));
+	}
 }
 
 async function getTagsId() {
