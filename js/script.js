@@ -1,6 +1,7 @@
 'use strict';
 
 import './chipsList.js';
+import './eventListeners.js';
 import {
 	body,
 	featureSection,
