@@ -80,7 +80,12 @@ main {
 
 .comments-container {
 	width: 70vw;
-	margin-bottom: 50px;
+	margin: 20px 0px 50px;
+}
+
+.comments-container > textarea {
+	width: inherit;
+	resize: none;
 }
 
 .comments-container > h3 {
