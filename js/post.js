@@ -79,8 +79,6 @@ function getSelectedUserId(e) {
 }
 
 function showComments() {
-	console.log(comments, commentsContainer);
-
 	if (comments.length > 0) {
 		for (let i = 0; i < comments.length; i++) {
 			const item = comments[i];
