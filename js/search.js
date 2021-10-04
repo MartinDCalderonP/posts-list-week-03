@@ -27,7 +27,7 @@ async function searchButtonClick(e) {
 }
 
 function searchNotFound() {
-	featureSection.innerHTML = `Posts for "${searchInput.value}" not found. <br> Search again please.`;
+	featureSection.innerHTML = `<h1>Posts for "${searchInput.value}" not found. <br> Search again please.</h1>`;
 	featureSection.style.color = 'red';
 	regularSection.innerHTML = '';
 }

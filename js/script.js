@@ -24,6 +24,7 @@ export function showCards(posts) {
 	} else {
 		featureSection.innerHTML =
 			"<h1>There aren't posts for this tags. Try another</h1>";
+			featureSection.style.color = 'red';
 	}
 }
 
