@@ -181,12 +181,12 @@ export function getUserName(id) {
 	return fullName;
 }
 
-export async function searchPost() {
+export async function searchPost(searchedTitle) {
 	try {
-		const response = await fetch(searchPostUrl);
+		const response = await fetch(searchPostUrl + searchedTitle);
 		const result = await response.json();
 		return result;
-	} catch (error) {
+	} catch (err) {
 		console.log(
 			`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
 		);

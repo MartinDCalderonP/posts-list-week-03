@@ -1,9 +1,9 @@
 'use strict';
 
 import './chipsList.js';
+import './search.js';
 import './eventListeners.js';
 import {
-	body,
 	featureSection,
 	regularSection,
 	posts,

@@ -45,7 +45,6 @@ export const authors = await getAuthors();
 export const post = await getPostById();
 export const comments = await getCommentsById();
 export const users = await getUsers();
-export const searchedPost = await searchPost();
 
 export const months = [
 	'January',
