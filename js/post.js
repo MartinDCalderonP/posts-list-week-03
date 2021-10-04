@@ -6,6 +6,7 @@ import {
 	comments,
 	editButton,
 	deleteButton,
+	postsUrl,
 } from './commonVariables.js';
 import {
 	changePostDateFormat,
@@ -72,9 +73,23 @@ function showComments() {
 }
 
 function editPost() {
-	console.log('EDIT');
+	window.location.href = `/createEdit.html?id=${post.id}`;
 }
 
 function deletePost() {
-	console.log('DELETE');
+	let result = confirm(
+		'Are you sure to delete the post? This action cannot be undone.'
+	);
+
+	if (result) {
+		fetch(postsUrl + '/' + post.id, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+			.then((data) => data.json())
+			.then((data) => alert('Deleted post.'))
+			.catch((err) => 'An error has occurred, please try again later.');
+	}
 }
