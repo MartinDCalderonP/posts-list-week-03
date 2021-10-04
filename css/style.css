@@ -20,12 +20,12 @@ header {
 	justify-content: center;
 }
 
-.form {
+.search-form {
 	margin: 20px 0px;
 	width: 75vw;
 }
 
-.form__search {
+.search-form__input {
 	display: flex;
 	align-items: center;
 	background-color: #ffffff;
@@ -37,16 +37,16 @@ header {
 	transition: box-shadow 0.3s linear, border-color 0.3s linear;
 }
 
-.form__search:hover {
+.search-form__input:hover {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 	border-color: black;
 }
 
-.form__search:hover > .form__search-button {
+.search-form__input:hover > .search-form__button {
 	color: black;
 }
 
-.form__search > input {
+.search-form__input > input {
 	flex: 1;
 	padding: 10px 20px;
 	font-size: 1rem;
@@ -54,7 +54,7 @@ header {
 	background-color: transparent;
 }
 
-.form__search-button {
+.search-form__button {
 	cursor: pointer;
 	background-color: transparent;
 	color: var(--detailsColor);
@@ -63,7 +63,7 @@ header {
 	padding: 15px 30px;
 }
 
-.form__search-button > i {
+.search-form__button > i {
 	background-color: transparent;
 	transition: all 0.3s linear;
 }
