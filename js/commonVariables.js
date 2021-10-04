@@ -25,6 +25,7 @@ export const regularSection = document.getElementById('regularSection');
 export const form = document.getElementById('form');
 export const formItems = form?.elements;
 export const submitButton = document.getElementById('submitButton');
+export const authorInput = document.getElementById('author');
 export const tagsInput = document.getElementById('tags');
 
 export const postContainer = document.getElementById('postContainer');
