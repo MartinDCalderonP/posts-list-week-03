@@ -14,14 +14,16 @@ import {
 	getAuthorName,
 	showChips,
 	getUserName,
+	throttle,
 } from './helperFunctions.js';
 
 showPost();
 showPostChips();
 showComments();
 
-editButton.addEventListener('click', editPost);
-deleteButton.addEventListener('click', deletePost);
+likeButton.addEventListener('click', throttle(likePost, 500));
+editButton.addEventListener('click', throttle(editPost, 500));
+deleteButton.addEventListener('click', throttle(deletePost, 500));
 
 function showPost() {
 	postContainer.innerHTML = `<div class="post-container__row">
@@ -69,6 +71,22 @@ function showComments() {
 	} else {
 		commentsContainer.innerHTML += `<h4>There aren't comments yet.</h4>`;
 	}
+}
+
+function likePost() {
+	let addLike = {};
+	addLike['likes'] = post.likes + 1;
+
+	fetch(postsUrl + '/' + post.id, {
+		method: 'PATCH',
+		body: JSON.stringify(addLike),
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	})
+		.then((data) => data.json())
+		.then((data) => alert('Like added to: ' + JSON.stringify(data)))
+		.catch((err) => alert('Error: ' + JSON.stringify(err)));
 }
 
 function editPost() {
