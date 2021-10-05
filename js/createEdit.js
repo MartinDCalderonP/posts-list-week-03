@@ -140,6 +140,19 @@ async function getAuthorId() {
 	return authorId;
 }
 
+async function createNewAuthor(authorName, authorLastName) {
+	let newAuthor = {};
+
+	newAuthor['name'] = authorName;
+	newAuthor['lastName'] = authorLastName;
+
+	let fetchUrl = '/authors';
+
+	let response = await fetcher.Post(fetchUrl, newAuthor);
+
+	return response.id;
+}
+
 async function getTagsId() {
 	let insertedTags = tagsInput.value.split(', ');
 	let tagsIds = [];
@@ -155,19 +168,6 @@ async function getTagsId() {
 	}
 
 	return tagsIds;
-}
-
-async function createNewAuthor(authorName, authorLastName) {
-	let newAuthor = {};
-
-	newAuthor['name'] = authorName;
-	newAuthor['lastName'] = authorLastName;
-
-	let fetchUrl = '/authors';
-
-	let response = await fetcher.Post(fetchUrl, newAuthor);
-
-	return response.id;
 }
 
 async function createNewTag(newTagName) {
