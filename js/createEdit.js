@@ -8,7 +8,8 @@ import {
 	post,
 	authors,
 } from './commonVariables.js';
-import { fetcher } from './fetcher.js';
+import { factory } from './objectsFactory.js';
+import { fetcher } from './singletonFetcher.js';
 import {
 	showChips,
 	isValid,
@@ -141,10 +142,7 @@ async function getAuthorId() {
 }
 
 async function createNewAuthor(authorName, authorLastName) {
-	let newAuthor = {};
-
-	newAuthor['name'] = authorName;
-	newAuthor['lastName'] = authorLastName;
+	let newAuthor = factory.createObject('author', authorName, authorLastName);
 
 	let fetchUrl = '/authors';
 
@@ -171,10 +169,7 @@ async function getTagsId() {
 }
 
 async function createNewTag(newTagName) {
-	let newTag = {};
-
-	newTag['name'] = newTagName;
-	newTag['slug'] = nameToSlug(newTagName);
+	let newTag = factory.createObject('tag', newTagName);
 
 	let fetchUrl = '/tags';
 
