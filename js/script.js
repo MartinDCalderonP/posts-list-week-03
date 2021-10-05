@@ -27,7 +27,7 @@ export function showCards(posts) {
 function insertPostsInCards(posts) {
 	for (let i = 0; i < posts.length; i++) {
 		if (i < 3) {
-			featureSection.innerHTML += `<div class="feature-section__card">
+			featureSection.innerHTML += `<div class="feature-section__card appear-card">
 											<a href="post.html?id=${posts[i].id}">
 												<h1>${posts[i].title}</h1>
 											</a>
@@ -45,7 +45,7 @@ function insertPostsInCards(posts) {
 											</p>
 										</div>`;
 		} else {
-			regularSection.innerHTML += `<div class="regular-section__card">
+			regularSection.innerHTML += `<div class="regular-section__card appear-card">
 											<a href="post.html?id=${posts[i].id}">
 												<h1>${posts[i].title}</h1>
 											</a>
