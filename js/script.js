@@ -2,6 +2,7 @@
 
 import './search.js';
 import './eventListeners.js';
+import './suggestions.js';
 import './chipsList.js';
 import { featureSection, regularSection, posts } from './commonVariables.js';
 import { getAuthorName, sortArrayByDate } from './helperFunctions.js';

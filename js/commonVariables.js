@@ -14,6 +14,7 @@ export const comments =
 export const searchForm = document.getElementById('searchForm');
 export const searchInput = document.getElementById('searchInput');
 export const searchButton = document.getElementById('searchButton');
+export const suggestionsList = document.getElementById('suggestionsList');
 export const chipsList = document.getElementById('chipsList');
 export const featureSection = document.getElementById('featureSection');
 export const regularSection = document.getElementById('regularSection');

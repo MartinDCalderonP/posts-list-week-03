@@ -68,7 +68,7 @@ header {
 	transition: all 0.3s linear;
 }
 
-.form__suggestions-list {
+.search-form__suggestions-list {
 	display: none;
 	list-style-type: none;
 	margin-top: -1px;
@@ -83,12 +83,12 @@ header {
 	transition: all 0.3s linear;
 }
 
-.form__suggestions-list:hover {
+.search-form__suggestions-list:hover {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 	border-color: black;
 }
 
-.form__suggestions-list > li {
+.search-form__suggestions-list > li {
 	font-size: 1rem;
 	background-color: transparent;
 	color: #404040;
@@ -96,7 +96,7 @@ header {
 	cursor: pointer;
 }
 
-.form__suggestions-list > li:hover {
+.search-form__suggestions-list > li:hover {
 	background-color: #eeeeee;
 }
 

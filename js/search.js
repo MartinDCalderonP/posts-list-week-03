@@ -14,7 +14,7 @@ let searchResult;
 searchForm.addEventListener('submit', (e) => e.preventDefault());
 searchButton.addEventListener('click', throttle(searchButtonClick, 500));
 
-async function searchButtonClick(e) {
+export async function searchButtonClick(e) {
 	if (e) {
 		e.preventDefault();
 	}
