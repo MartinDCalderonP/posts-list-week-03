@@ -1,72 +1,10 @@
-import {
-	tagsUrl,
-	postsUrl,
-	authorsUrl,
-	authors,
-	postId,
-	months,
-	commentsUrl,
-	usersUrl,
-	users,
-	tags,
-	searchPostUrl,
-} from './commonVariables.js';
+import { authors, months, users, tags } from './commonVariables.js';
 
 export function showChips(tags) {
 	for (let i = 0; i < tags.length; i++) {
 		chipsList.innerHTML += `<div id=${tags[i].id} class="chips-container__chips-list__chip">
 									${tags[i].name}
 								</div>`;
-	}
-}
-
-export async function getTags() {
-	try {
-		const response = await fetch(tagsUrl);
-		const result = await response.json();
-		return result;
-	} catch (err) {
-		console.log(
-			`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
-		);
-	}
-}
-
-export async function getPosts() {
-	try {
-		const response = await fetch(postsUrl);
-		const result = await response.json();
-		return result;
-	} catch (err) {
-		console.log(
-			`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
-		);
-	}
-}
-
-export async function getPostById() {
-	if (postId) {
-		try {
-			const response = await fetch(postsUrl + '/' + postId);
-			const result = await response.json();
-			return result;
-		} catch (err) {
-			console.log(
-				`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
-			);
-		}
-	}
-}
-
-export async function getAuthors() {
-	try {
-		const response = await fetch(authorsUrl);
-		const result = await response.json();
-		return result;
-	} catch (err) {
-		console.log(
-			`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
-		);
 	}
 }
 
@@ -151,46 +89,10 @@ export function changePostDateFormat(postDate) {
 	return result;
 }
 
-export async function getCommentsById() {
-	try {
-		const response = await fetch(commentsUrl + '?postId=' + postId);
-		const result = await response.json();
-		return result;
-	} catch (err) {
-		console.log(
-			`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
-		);
-	}
-}
-
-export async function getUsers() {
-	try {
-		const response = await fetch(usersUrl);
-		const result = await response.json();
-		return result;
-	} catch (err) {
-		console.log(
-			`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
-		);
-	}
-}
-
 export function getUserName(id) {
 	let user = users.find((item) => item.id === parseInt(id));
 	let fullName = `${user.name} ${user.lastName}`;
 	return fullName;
-}
-
-export async function searchPost(searchedTitle) {
-	try {
-		const response = await fetch(searchPostUrl + searchedTitle);
-		const result = await response.json();
-		return result;
-	} catch (err) {
-		console.log(
-			`El servidor devolvió un error: ${err}. <br> Inténtelo de nuevo más tarde.`
-		);
-	}
 }
 
 export function debounce(fn, delay) {

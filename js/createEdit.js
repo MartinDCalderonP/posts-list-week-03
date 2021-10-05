@@ -1,16 +1,14 @@
 import {
 	formItems,
 	submitButton,
-	postsUrl,
 	authorInput,
 	tagsInput,
 	tags,
-	tagsUrl,
 	postId,
 	post,
 	authors,
-	authorsUrl,
 } from './commonVariables.js';
+import { fetcher } from './fetcher.js';
 import {
 	showChips,
 	isValid,
@@ -91,8 +89,6 @@ function inputError(input, message) {
 
 async function createPost() {
 	let formData = {};
-	let fetchUrl = postsUrl;
-	let method = 'POST';
 
 	for (let i = 0; i < formItems.length - 2; i++) {
 		let item = formItems[i];
@@ -100,44 +96,29 @@ async function createPost() {
 		formData[item.name] = item.value;
 	}
 
-	if (!postId) {
-		formData['createDate'] = getCreateDate();
-	} else {
-		formData['createDate'] = post.createDate;
-	}
-
 	formData['author'] = await getAuthorId();
 	formData['tags'] = await getTagsId();
+	formData['likes'] = post.likes;
 
-	if (postId) {
-		method = 'PUT';
-		fetchUrl = postsUrl + '/' + postId;
+	let fetchUrl = '/posts';
+	let response;
+
+	if (!postId) {
+		formData['createDate'] = getCreateDate();
+		response = await fetcher.Post(fetchUrl, formData);
+	} else {
+		fetchUrl += '/' + postId;
+		formData['createDate'] = post.createDate;
+		response = await fetcher.Put(fetchUrl, formData);
 	}
 
-	if (formData.tags) {
-		let undefinedTag = formData.tags.find((item) => typeof item !== 'number');
+	if (response) {
+		let alertWord = postId ? 'edited' : 'created';
 
-		if (undefinedTag) {
-			return;
-		}
+		alert(`Post ${alertWord} successfully!`);
+
+		window.location.href = `/post.html?id=${response.id}`;
 	}
-
-	fetch(fetchUrl, {
-		method: method,
-		body: JSON.stringify(formData),
-		headers: {
-			'Content-Type': 'application/json',
-		},
-	})
-		.then((data) => data.json())
-		.then((data) => {
-			if (!method === 'PUT') {
-				alert('Post created: ' + JSON.stringify(data));
-			} else {
-				alert('Post modified: ' + JSON.stringify(data));
-			}
-		})
-		.catch((err) => alert('Error: ' + JSON.stringify(err)));
 }
 
 async function getAuthorId() {
@@ -159,34 +140,6 @@ async function getAuthorId() {
 	return authorId;
 }
 
-async function createNewAuthor(authorName, authorLastName) {
-	let newAuthor = {};
-
-	newAuthor['name'] = authorName;
-	newAuthor['lastName'] = authorLastName;
-
-	let newAuthorId = await getNewAuthorId(newAuthor);
-
-	return newAuthorId;
-}
-
-async function getNewAuthorId(newAuthor) {
-	try {
-		const response = await fetch(authorsUrl, {
-			method: 'POST',
-			body: JSON.stringify(newAuthor),
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		});
-
-		const result = await response.json();
-		return result.id;
-	} catch (err) {
-		alert('Error: ' + JSON.stringify(err));
-	}
-}
-
 async function getTagsId() {
 	let insertedTags = tagsInput.value.split(', ');
 	let tagsIds = [];
@@ -204,30 +157,28 @@ async function getTagsId() {
 	return tagsIds;
 }
 
+async function createNewAuthor(authorName, authorLastName) {
+	let newAuthor = {};
+
+	newAuthor['name'] = authorName;
+	newAuthor['lastName'] = authorLastName;
+
+	let fetchUrl = '/authors';
+
+	let response = await fetcher.Post(fetchUrl, newAuthor);
+
+	return response.id;
+}
+
 async function createNewTag(newTagName) {
 	let newTag = {};
 
 	newTag['name'] = newTagName;
 	newTag['slug'] = nameToSlug(newTagName);
 
-	let newTagId = await getNewTagId(newTag);
+	let fetchUrl = '/tags';
 
-	return newTagId;
-}
+	let response = await fetcher.Post(fetchUrl, newTag);
 
-async function getNewTagId(newTag) {
-	try {
-		const response = await fetch(tagsUrl, {
-			method: 'POST',
-			body: JSON.stringify(newTag),
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		});
-
-		const result = await response.json();
-		return result.id;
-	} catch (err) {
-		alert('Error: ' + JSON.stringify(err));
-	}
+	return response.id;
 }

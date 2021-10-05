@@ -5,7 +5,8 @@ import {
 	featureSection,
 	regularSection,
 } from './commonVariables.js';
-import { searchPost, throttle } from './helperFunctions.js';
+import { fetcher } from './fetcher.js';
+import { throttle } from './helperFunctions.js';
 import { showCards } from './script.js';
 
 let searchResult;
@@ -19,7 +20,7 @@ async function searchButtonClick(e) {
 	}
 
 	if (searchInput.value) {
-		searchResult = await searchPost(searchInput.value);
+		searchResult = await fetcher.Get('/posts?title_like=' + searchInput.value);
 		showCards(searchResult);
 	} else {
 		searchNotFound();

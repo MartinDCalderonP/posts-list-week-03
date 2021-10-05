@@ -6,14 +6,13 @@ import {
 	comments,
 	editButton,
 	deleteButton,
-	postsUrl,
 	likeButton,
 	addCommentButton,
 	commentTextArea,
-	commentsUrl,
 	users,
 	userSelect,
 } from './commonVariables.js';
+import { fetcher } from './fetcher.js';
 import {
 	changePostDateFormat,
 	getAuthorName,
@@ -97,48 +96,43 @@ function showComments() {
 	}
 }
 
-function likePost() {
+async function likePost() {
 	let addLike = {};
 	addLike['likes'] = post.likes + 1;
 
-	fetch(postsUrl + '/' + post.id, {
-		method: 'PATCH',
-		body: JSON.stringify(addLike),
-		headers: {
-			'Content-Type': 'application/json',
-		},
-	})
-		.then((data) => data.json())
-		.then((data) => alert('Like added to: ' + JSON.stringify(data)))
-		.catch((err) => alert('Error: ' + JSON.stringify(err)));
+	let fetchUrl = '/posts/' + post.id;
+
+	let response = await fetcher.Patch(fetchUrl, addLike);
+
+	if (response) {
+		alert('Post liked successfully!');
+	}
 }
 
 function editPost() {
 	window.location.href = `/createEdit.html?id=${post.id}`;
 }
 
-function deletePost() {
+async function deletePost() {
 	let result = confirm(
 		'Are you sure to delete the post? This action cannot be undone.'
 	);
 
-	if (result) {
-		fetch(postsUrl + '/' + post.id, {
-			method: 'DELETE',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		})
-			.then((data) => data.json())
-			.then((data) => {
-				alert('Deleted post.');
-				window.location.replace('index.html');
-			})
-			.catch((err) => 'An error has occurred, please try again later.');
+	if (!result) {
+		return;
+	}
+
+	let fetchUrl = '/posts/' + post.id;
+
+	let response = await fetcher.Delete(fetchUrl);
+
+	if (response) {
+		alert('Deleted post.');
+		window.location.replace('index.html');
 	}
 }
 
-function addComment() {
+async function addComment() {
 	if (commentTextArea.value) {
 		let newComment = {};
 
@@ -146,15 +140,10 @@ function addComment() {
 		newComment['postId'] = post.id;
 		newComment['user'] = selectedUserId;
 
-		fetch(commentsUrl, {
-			method: 'POST',
-			body: JSON.stringify(newComment),
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		})
-			.then((data) => data.json())
-			.then((data) => alert('Comment added: ' + JSON.stringify(data)))
-			.catch((err) => 'An error has occurred, please try again later.');
+		let response = await fetcher.Post('/comments', newComment);
+
+		if (response) {
+			alert('Post commented successfully!');
+		}
 	}
 }

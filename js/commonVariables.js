@@ -1,24 +1,19 @@
-import {
-	getTags,
-	getPosts,
-	getPostById,
-	getAuthors,
-	getCommentsById,
-	getUsers,
-} from './helperFunctions.js';
-
-export const serverUrl = 'https://posts-list-db.herokuapp.com';
-export const postsUrl = serverUrl + '/posts';
-export const tagsUrl = serverUrl + '/tags';
-export const authorsUrl = serverUrl + '/authors';
-export const commentsUrl = serverUrl + '/comments';
-export const usersUrl = serverUrl + '/users';
-export const searchPostUrl = serverUrl + '/posts?title_like=';
+import { fetcher } from './fetcher.js';
 
 export const urlParams = new URLSearchParams(window.location.search);
 export const postId = urlParams.get('id');
 
-export const body = document.getElementsByTagName('body');
+export const tags = await fetcher.Get('/tags');
+export const posts = await fetcher.Get('/posts');
+export const authors = await fetcher.Get('/authors');
+export const users = await fetcher.Get('/users');
+export const post = postId && (await fetcher.Get('/posts/' + postId));
+export const comments =
+	postId && (await fetcher.Get('/comments?postId=' + postId));
+
+export const searchForm = document.getElementById('searchForm');
+export const searchInput = document.getElementById('searchInput');
+export const searchButton = document.getElementById('searchButton');
 export const chipsList = document.getElementById('chipsList');
 export const featureSection = document.getElementById('featureSection');
 export const regularSection = document.getElementById('regularSection');
@@ -37,17 +32,6 @@ export const deleteButton = document.getElementById('deleteButton');
 export const userSelect = document.getElementById('userSelect');
 export const commentTextArea = document.getElementById('commentTextArea');
 export const addCommentButton = document.getElementById('addCommentButton');
-
-export const searchForm = document.getElementById('searchForm');
-export const searchInput = document.getElementById('searchInput');
-export const searchButton = document.getElementById('searchButton');
-
-export const tags = await getTags();
-export const posts = await getPosts();
-export const authors = await getAuthors();
-export const post = await getPostById();
-export const comments = await getCommentsById();
-export const users = await getUsers();
 
 export const months = [
 	'January',
