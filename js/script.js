@@ -15,14 +15,9 @@ export function showCards(posts) {
 
 	featureSection.innerHTML = '';
 	regularSection.innerHTML = '';
-
-	if (posts.length > 0) {
-		insertPostsInCards(posts);
-	} else {
-		featureSection.innerHTML =
-			"<h1>There aren't posts for this tags. Try another</h1>";
-		featureSection.style.color = 'red';
-	}
+	featureSection.style.color = 'black';
+	
+	insertPostsInCards(posts);
 }
 
 function insertPostsInCards(posts) {

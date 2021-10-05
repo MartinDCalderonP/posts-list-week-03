@@ -132,6 +132,16 @@ export function throttle(fn, delay) {
 	};
 }
 
+export function postsNotFound(term) {
+	featureSection.innerHTML = `<h1>
+									Posts for "${term}" not found.
+									<br>
+									Try again please.
+								</h1>`;
+	featureSection.style.color = 'red';
+	regularSection.innerHTML = '';
+}
+
 export function showSpinner() {
 	featureSection.innerHTML = '';
 	regularSection.innerHTML = '';

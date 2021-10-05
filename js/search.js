@@ -4,12 +4,11 @@ import {
 	searchButton,
 	featureSection,
 	regularSection,
+	posts,
 } from './commonVariables.js';
 import { fetcher } from './singletonFetcher.js';
-import { showSpinner, throttle } from './helperFunctions.js';
+import { postsNotFound, showSpinner, throttle } from './helperFunctions.js';
 import { showCards } from './script.js';
-
-let searchResult;
 
 searchForm.addEventListener('submit', (e) => e.preventDefault());
 searchButton.addEventListener('click', throttle(searchButtonClick, 500));
@@ -19,17 +18,19 @@ export async function searchButtonClick(e) {
 		e.preventDefault();
 	}
 
+	let searchResult;
+
 	if (searchInput.value) {
 		showSpinner();
-		searchResult = await fetcher.Get('/posts?title_like=' + searchInput.value);
-		showCards(searchResult);
-	} else {
-		searchNotFound();
-	}
-}
 
-function searchNotFound() {
-	featureSection.innerHTML = `<h1>Posts for "${searchInput.value}" not found. <br> Search again please.</h1>`;
-	featureSection.style.color = 'red';
-	regularSection.innerHTML = '';
+		searchResult = await fetcher.Get('/posts?title_like=' + searchInput.value);
+
+		if (searchResult.length === 0) {
+			postsNotFound(searchInput.value);
+		} else {
+			showCards(searchResult);
+		}
+	} else {
+		showCards(posts);
+	}
 }

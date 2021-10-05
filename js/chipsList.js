@@ -1,5 +1,5 @@
 import { chipsList, tags, posts } from './commonVariables.js';
-import { showChips } from './helperFunctions.js';
+import { postsNotFound, showChips } from './helperFunctions.js';
 import { showCards } from './script.js';
 
 chipsList.addEventListener('click', filterByTag);
@@ -13,6 +13,10 @@ function filterByTag(e) {
 
 		filteredPosts = posts.filter((item) => item.tags.includes(id));
 
-		showCards(filteredPosts);
+		if (filteredPosts.length === 0) {
+			postsNotFound(e.target.innerText);
+		} else {
+			showCards(filteredPosts);
+		}
 	}
 }
