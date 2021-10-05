@@ -23,10 +23,14 @@ import {
 
 let selectedUserId = 1;
 
-showPost();
-showPostChips();
-showComments();
-showUsersOnSelect();
+if (post.id) {
+	showPost();
+	showPostChips();
+	showComments();
+	showUsersOnSelect();
+} else {
+	window.location.href = '/index.html';
+}
 
 likeButton.addEventListener('click', throttle(likePost, 500));
 editButton.addEventListener('click', throttle(editPost, 500));
