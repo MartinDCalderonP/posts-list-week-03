@@ -1,8 +1,16 @@
-import { authors, months, users, tags } from './commonVariables.js';
+import {
+	authors,
+	months,
+	users,
+	tags,
+	featureSection,
+	spinner,
+	regularSection,
+} from './commonVariables.js';
 
 export function showChips(tags) {
 	for (let i = 0; i < tags.length; i++) {
-		chipsList.innerHTML += `<div id=${tags[i].id} class="chips-container__chips-list__chip">
+		chipsList.innerHTML += `<div id=${tags[i].id} class="chips-container__chips-list__chip appear-card">
 									${tags[i].name}
 								</div>`;
 	}
@@ -122,4 +130,14 @@ export function throttle(fn, delay) {
 		last = now;
 		return fn(...args);
 	};
+}
+
+export function showSpinner() {
+	featureSection.innerHTML = '';
+	regularSection.innerHTML = '';
+	featureSection.appendChild(spinner);
+}
+
+export function closeOverlay() {
+	overlay.style.display = 'none';
 }

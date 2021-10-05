@@ -26,6 +26,22 @@ main {
 	justify-content: center;
 }
 
+.overlay {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.9);
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+}
+
+.overlay__spinner {
+	max-width: 200px;
+}
+
 .form {
 	width: 40vw;
 	background-color: var(--backgroundColor);

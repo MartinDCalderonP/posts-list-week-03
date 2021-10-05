@@ -46,7 +46,7 @@ function showPost() {
                                 <h1>${post.title}</h1>
                                 <h2>${post.subTitle}</h2>
                                 <p>Por: ${getAuthorName(post.author)}</p>
-                                <img src=${post.image} alt=${post.title}>
+                                <img class="appear-card" src=${post.image} alt=${post.title}>
                                 <div class="post-container__body__icons">
                                     
                                 </div>

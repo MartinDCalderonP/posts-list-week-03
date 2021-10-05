@@ -6,7 +6,7 @@ import {
 	regularSection,
 } from './commonVariables.js';
 import { fetcher } from './singletonFetcher.js';
-import { throttle } from './helperFunctions.js';
+import { showSpinner, throttle } from './helperFunctions.js';
 import { showCards } from './script.js';
 
 let searchResult;
@@ -20,6 +20,7 @@ export async function searchButtonClick(e) {
 	}
 
 	if (searchInput.value) {
+		showSpinner();
 		searchResult = await fetcher.Get('/posts?title_like=' + searchInput.value);
 		showCards(searchResult);
 	} else {

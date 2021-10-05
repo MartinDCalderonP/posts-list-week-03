@@ -142,6 +142,11 @@ header {
 	align-items: stretch;
 }
 
+.feature-section__spinner {
+	margin-top: 50px;
+	width: 100px;
+}
+
 .feature-section__card {
 	width: 30%;
 	max-height: fit-content;
@@ -224,7 +229,7 @@ header {
 }
 
 .appear-card {
-	animation: appear-card 0.4s ease-in;
+	animation: appear-card 0.5s ease-in;
 }
 
 @keyframes appear-card {

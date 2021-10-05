@@ -17,6 +17,7 @@ import {
 	nameToSlug,
 	getAuthorName,
 	getTagsNames,
+	closeOverlay,
 } from './helperFunctions.js';
 
 const errorsList = document.getElementById('Errors List');
@@ -46,6 +47,8 @@ function showPostToEdit() {
 
 		item.value = inputsTypes[item.name];
 	}
+
+	closeOverlay();
 }
 
 function selectAnExistingTag(e) {
