@@ -1,4 +1,4 @@
-import { fetcher } from './fetcher.js';
+import { fetcher } from './singletonFetcher.js';
 
 export const urlParams = new URLSearchParams(window.location.search);
 export const postId = urlParams.get('id');

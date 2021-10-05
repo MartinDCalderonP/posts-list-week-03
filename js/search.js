@@ -5,7 +5,7 @@ import {
 	featureSection,
 	regularSection,
 } from './commonVariables.js';
-import { fetcher } from './fetcher.js';
+import { fetcher } from './singletonFetcher.js';
 import { throttle } from './helperFunctions.js';
 import { showCards } from './script.js';
 

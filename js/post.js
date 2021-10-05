@@ -12,7 +12,7 @@ import {
 	users,
 	userSelect,
 } from './commonVariables.js';
-import { fetcher } from './fetcher.js';
+import { fetcher } from './singletonFetcher.js';
 import {
 	changePostDateFormat,
 	getAuthorName,
