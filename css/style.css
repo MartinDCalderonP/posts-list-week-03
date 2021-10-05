@@ -139,12 +139,11 @@ header {
 	margin: 20px 0px;
 	display: flex;
 	justify-content: space-evenly;
-	height: 75vh;
+	align-items: stretch;
 }
 
 .feature-section__card {
 	width: 30%;
-	height: 100%;
 	background-color: var(--backgroundColor);
 	border: 1px solid var(--detailsColor);
 	border-radius: 5px;
@@ -184,6 +183,7 @@ header {
 .feature-section__card__description {
 	margin-top: 15px;
 	text-align: justify;
+	font-size: 1rem;
 }
 
 .regular-section {
@@ -232,5 +232,50 @@ header {
 	}
 	100% {
 		transform: scale(1);
+	}
+}
+
+@media (max-width: 699px) {
+	.chips-container__chips-list {
+		width: 90%;
+	}
+
+	.feature-section {
+		margin-top: 0px;
+		flex-direction: column;
+		align-items: center;
+		height: 40%;
+	}
+
+	.feature-section__card {
+		justify-content: space-between;
+		width: 80%;
+		margin: 10px 0px;
+	}
+
+	.feature-section__card img {
+		width: 100%;
+	}
+
+	.feature-section__card__description {
+		display: none;
+	}
+
+	.regular-section__card {
+		width: 40%;
+	}
+}
+
+@media (min-width: 700px) and (max-width: 1000px) {
+	.feature-section {
+		height: 60vh;
+	}
+
+	.feature-section__card {
+		margin: 10px 20px;
+	}
+
+	.feature-section__card__description {
+		text-align: left;
 	}
 }

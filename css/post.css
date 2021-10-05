@@ -1,3 +1,9 @@
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 nav {
 	display: flex;
 	align-items: center;
@@ -6,6 +12,7 @@ nav {
 	border-top: 1px solid var(--detailsColor);
 	border-bottom: 1px solid var(--detailsColor);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+	width: 100vw;
 	height: 50px;
 }
 
@@ -25,11 +32,11 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	width: 70vw;
 }
 
 .post-container {
 	margin-top: 20px;
-	width: 70vw;
 }
 
 .post-container__row {
@@ -153,4 +160,16 @@ main {
 
 .comments-container > div > p:first-child {
 	margin-bottom: 10px;
+}
+
+@media (max-width: 699px) {
+	main {
+		width: 85vw;
+	}
+}
+
+@media (min-width: 700px) and (max-width: 1000px) {
+	main {
+		width: 80vw;
+	}
 }

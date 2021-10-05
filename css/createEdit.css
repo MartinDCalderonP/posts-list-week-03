@@ -141,3 +141,16 @@ main {
 	border: 1px solid var(--detailsColor);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
 }
+
+@media (max-width: 699px) {
+	.form {
+		width: 85%;
+		margin: 20px;
+	}
+}
+
+@media (min-width: 700px) and (max-width: 1000px) {
+	.form {
+		width: 70%;
+	}
+}
